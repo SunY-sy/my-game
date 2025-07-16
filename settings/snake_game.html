@@ -466,6 +466,11 @@
         document.addEventListener('keydown', e => {
             if (!gameRunning || gamePaused) return;
 
+            // 阻止方向键的默认页面滚动行为
+            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+                e.preventDefault();
+            }
+
             // 保存当前方向
             const oldVelocity = {...velocity};
             
